@@ -46,6 +46,7 @@ export class PostsServices implements IPostsServices {
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
     const posts = await this._apiServiceManager.makeRequest(options);
+    console.log('checking posts data: ', posts);
     return {
       status: posts.status,
       data: posts.data
@@ -59,6 +60,7 @@ export class PostsServices implements IPostsServices {
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
     const post = await this._apiServiceManager.makeRequest(options);
+    console.log('checking post data: ', post);
     return {
       status: post.status,
       data: post.data
@@ -73,6 +75,7 @@ export class PostsServices implements IPostsServices {
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
     const postResponse = await this._apiServiceManager.makeRequest(options);
+    console.log('checking post response in addPost(): ', postResponse);
     return {
       status: postResponse.status,
       data: postResponse.data

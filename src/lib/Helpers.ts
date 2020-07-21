@@ -2,6 +2,6 @@
 export class Helpers {
 
   static getUrlParameter(path: string) {
-    return path.split('/')[1];
+    return path.split('/')[2];
   }
 }

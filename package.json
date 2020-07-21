@@ -1,18 +1,18 @@
 {
-  "name": "ts-simple-api-proxy-template",
+  "name": "ts-standard-api-proxy-template",
   "version": "1.0.0",
-  "description": "Typescript Lambda function template for a simple API proxy service",
+  "description": "TypeScript Lambda function multiple API Proxy services Example",
   "scripts": {
     "build": "tsc",
     "watch:build": "tsc --watch",
-    "test": "nyc --reporter=html --reporter=text mocha --require source-map-support/register -r ts-node/register test/**/*.spec.ts",
-    "test:watch": "mocha --require source-map-support/register -r ts-node/register --watch-files src, test/**/*.spec.ts --watch",
+    "test": "nyc --reporter=html --reporter=text mocha --require source-map-support/register -r ts-node/register src/**/*.spec.ts",
+    "test:watch": "mocha --require source-map-support/register -r ts-node/register --watch-files src, src/**/*.spec.ts --watch",
     "integration": "nyc --reporter=html --reporter=text mocha -r ts-node/register --recursive --timeout 5000 integration/**/*.ts",
     "deploy": "sls deploy"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aws-lambda-template-generator/ts-simple-api-proxy-template"
+    "url": "https://github.com/aws-lambda-template-generator/ts-standard-api-proxy-template"
   },
   "keywords": [],
   "author": "mdh",

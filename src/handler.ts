@@ -12,6 +12,12 @@ import { IPost } from './models/PostModel';
 
 module.exports.example = async(event: IEventPayload, context: any, callback: ICallback) => {
 
+  console.log(event);
+  console.log('API Gateway Event.');
+  console.log(`payload: ${event.body}`);
+  console.log(`method: ${event.httpMethod}`);
+  console.log(`paths: ${event.path}`);
+
   const apiOptions = new ApiOptions();
   const apiOptionManager = new ApiOptionsManager();
   const apiManager = new ApiManager();
@@ -20,6 +26,8 @@ module.exports.example = async(event: IEventPayload, context: any, callback: ICa
   const requestRouter = new RequestRouter(postsServices, usersServices);
   const responseGenerator = new ResponseGenerator(requestRouter);
   const response = await responseGenerator.generateLambdaResponse(event);
+
+  console.log('checking lambda response in handler: ', response);
 
   callback(null, response);
 };

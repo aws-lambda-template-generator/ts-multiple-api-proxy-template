@@ -46,6 +46,7 @@ export class UsersServices implements IUsersServices {
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
     const users = await this._apiServiceManager.makeRequest(options);
+    console.log('checking users data in getAllUsers(): ', users);
     return {
       status: users.status,
       data: users.data
@@ -58,7 +59,9 @@ export class UsersServices implements IUsersServices {
     this._apiOptions.headers = BASIC_CONTENT_TYPE_ONLY_HEADERS;
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
+    console.log('checking user options: ', options);
     const user = await this._apiServiceManager.makeRequest(options);
+    console.log('checking user data in getUser(): ', user);
     return {
       status: user.status,
       data: user.data
@@ -73,6 +76,7 @@ export class UsersServices implements IUsersServices {
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
     const postResponse = await this._apiServiceManager.makeRequest(options);
+    console.log('checking addUser() response: ', postResponse);
     return {
       status: postResponse.status,
       data: postResponse.data

@@ -15,8 +15,10 @@ export const BASIC_CONTENT_TYPE_ONLY_HEADERS = {
 // Lambda path
 export const GET_USERS = 'get-users';
 export const GET_USER = 'get-user';
+export const ADD_USER = 'add-user';
 export const GET_POSTS = 'get-posts';
 export const GET_POST = 'get-post';
+export const ADD_POST = 'add-post';
 
 // Lambda Response
 export const RESPONSE_HEADER = {

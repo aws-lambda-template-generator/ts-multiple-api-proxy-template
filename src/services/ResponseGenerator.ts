@@ -13,10 +13,11 @@ export class ResponseGenerator {
   async generateLambdaResponse(event: IEventPayload): Promise<ILambdaResponse> {
 
     const data = await this._requestRouter.routeRequests(event);
+    console.log('checking data in generateLambdaResponse(): ', data);
     return {
       statusCode: data.status,
       headers: RESPONSE_HEADER,
-      body: data.data,
+      body: JSON.stringify(data.data),
       isBase64Encoded: false
     };
   }

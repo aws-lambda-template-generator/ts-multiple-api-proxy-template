@@ -29,7 +29,7 @@ export interface ILambdaResponse {
 }
 
 export interface IEventPayload {
-  method: string;
+  httpMethod: string;
   body: string;
   path: string;
 }

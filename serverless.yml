@@ -1,4 +1,4 @@
-service: ts-lambda-boilerplate
+service: ts-lambda-mulitple-api
 
 plugins:
   - serverless-webpack # Enable typescript transpilation through webpack and deployment with serverless
@@ -13,7 +13,7 @@ custom:
   account: ${opt:account, self:provider.account}
   # customDomain: ${file(config/domains.yml)} # this is for custom dns for API endpoint
   # certs: ${file(config/certs.yml)} # if creating custom dns, need to specify certificate
-  functionName: ${self:custom.env}-ts-lambda-boilerplate # This is the function name appears in the AWS lambda console.
+  functionName: ${self:custom.env}-ts-lambda-mulitple-api # This is the function name appears in the AWS lambda console.
 
 provider:
   name: aws
@@ -30,8 +30,8 @@ provider:
   environment: ${file(config/env.yml)}
   # vpc: ${file(config/vpc/${self:custom.env}.yml)} # specifies which vpc to run, without it, defaults to default vpc.
   # If using API gateway with key, specify the key name.
-  apiKeys:
-    - ${self:custom.resourcePrefix}-api-key
+  # apiKeys:
+  #   - ${self:custom.resourcePrefix}-api-key
 
 functions:
   nodejsLambdaBoilerPlate:
@@ -41,11 +41,42 @@ functions:
       - http:
           path: get-users
           method: get
-      # - http:
-      #     path: example-api # the path comes after API endpoint
-      #     method: post
-      #     private: true
-
+          cors:
+            origin: '*'
+      - http:
+          path: get-user/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+          cors:
+            origin: '*'
+      - http:
+          path: add-user
+          method: post
+          cors:
+            origin: '*'
+      - http:
+          path: get-posts
+          method: get
+          cors:
+            origin: '*'
+      - http:
+          path: get-post/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+          cors:
+            origin: '*'
+      - http:
+          path: add-post
+          method: post
+          cors:
+            origin: '*'
+  
 # If you need to create AWS resources such as dynamodb or cloudwatch, specify in resource.yml
 # resources: 
 #   Resources: ${file(config/resources.yml)}
