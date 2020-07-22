@@ -81,6 +81,11 @@ response comes back with mock id which is always the same
 - Jenkins
 - Mocha
 
+## AWS Services
+
+- Lambda
+- API Gateway
+
 ### Setup
 
 (1) Install all modules

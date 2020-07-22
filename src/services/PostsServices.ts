@@ -29,14 +29,14 @@ export class PostsServices implements IPostsServices {
 
   private readonly _apiOptions: IApiOptions<IPost>;
   private readonly _apiOptionsManager: IApiOptionsManager<IPost>;
-  private readonly _apiServiceManager: IApiManager<IPost>;
+  private readonly _apiManager: IApiManager<IPost>;
 
   constructor(apiOptions: IApiOptions<IPost>,
     apiOptionsManager: IApiOptionsManager<IPost>,
-    apiServiceManager: IApiManager<IPost>) {
+    apiManager: IApiManager<IPost>) {
       this._apiOptions = apiOptions;
       this._apiOptionsManager = apiOptionsManager;
-      this._apiServiceManager = apiServiceManager;
+      this._apiManager = apiManager;
     }
 
   async getAllPosts(): Promise<IGetAllPostsResponse> {
@@ -45,8 +45,8 @@ export class PostsServices implements IPostsServices {
     this._apiOptions.headers = BASIC_CONTENT_TYPE_ONLY_HEADERS;
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
-    const posts = await this._apiServiceManager.makeRequest(options);
-    console.log('checking posts data: ', posts);
+    const posts = await this._apiManager.makeRequest(options);
+    // console.log('checking posts data: ', posts);
     return {
       status: posts.status,
       data: posts.data
@@ -59,8 +59,8 @@ export class PostsServices implements IPostsServices {
     this._apiOptions.headers = BASIC_CONTENT_TYPE_ONLY_HEADERS;
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
-    const post = await this._apiServiceManager.makeRequest(options);
-    console.log('checking post data: ', post);
+    const post = await this._apiManager.makeRequest(options);
+    // console.log('checking post data: ', post);
     return {
       status: post.status,
       data: post.data
@@ -74,8 +74,8 @@ export class PostsServices implements IPostsServices {
     this._apiOptions.data = postData;
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
-    const postResponse = await this._apiServiceManager.makeRequest(options);
-    console.log('checking post response in addPost(): ', postResponse);
+    const postResponse = await this._apiManager.makeRequest(options);
+    // console.log('checking post response in addPost(): ', postResponse);
     return {
       status: postResponse.status,
       data: postResponse.data

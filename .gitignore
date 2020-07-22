@@ -1,5 +1,5 @@
-# Reference folder
-reference/
+# Reference config folder
+reference-config
 
 # Serverless directories
 .serverless

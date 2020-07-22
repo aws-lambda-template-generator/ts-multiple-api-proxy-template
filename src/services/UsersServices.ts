@@ -29,14 +29,14 @@ export class UsersServices implements IUsersServices {
 
   private readonly _apiOptions: IApiOptions<IUser>;
   private readonly _apiOptionsManager: IApiOptionsManager<IUser>;
-  private readonly _apiServiceManager: IApiManager<IUser>;
+  private readonly _apiManager: IApiManager<IUser>;
 
   constructor(apiOptions: IApiOptions<IUser>,
     apiOptionsManager: IApiOptionsManager<IUser>,
-    apiServiceManager: IApiManager<IUser>) {
+    apiManager: IApiManager<IUser>) {
       this._apiOptions = apiOptions;
       this._apiOptionsManager = apiOptionsManager;
-      this._apiServiceManager = apiServiceManager;
+      this._apiManager = apiManager;
     }
 
   async getAllUsers(): Promise<IGetAllUsersResponse> {
@@ -45,8 +45,8 @@ export class UsersServices implements IUsersServices {
     this._apiOptions.headers = BASIC_CONTENT_TYPE_ONLY_HEADERS;
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
-    const users = await this._apiServiceManager.makeRequest(options);
-    console.log('checking users data in getAllUsers(): ', users);
+    const users = await this._apiManager.makeRequest(options);
+    // console.log('checking users data in getAllUsers(): ', users);
     return {
       status: users.status,
       data: users.data
@@ -59,9 +59,9 @@ export class UsersServices implements IUsersServices {
     this._apiOptions.headers = BASIC_CONTENT_TYPE_ONLY_HEADERS;
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
-    console.log('checking user options: ', options);
-    const user = await this._apiServiceManager.makeRequest(options);
-    console.log('checking user data in getUser(): ', user);
+    // console.log('checking user options: ', options);
+    const user = await this._apiManager.makeRequest(options);
+    // console.log('checking user data in getUser(): ', user);
     return {
       status: user.status,
       data: user.data
@@ -75,8 +75,8 @@ export class UsersServices implements IUsersServices {
     this._apiOptions.data = userData;
     const options = this._apiOptionsManager
       .createApiSimpleGetOptions(this._apiOptions);
-    const postResponse = await this._apiServiceManager.makeRequest(options);
-    console.log('checking addUser() response: ', postResponse);
+    const postResponse = await this._apiManager.makeRequest(options);
+    // console.log('checking addUser() response: ', postResponse);
     return {
       status: postResponse.status,
       data: postResponse.data

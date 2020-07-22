@@ -15,8 +15,6 @@ import {
 
 export interface IRequestRouter {
   routeRequests(event: IEventPayload): Promise<any>;
-  routeUsersRequests(httpMethod, body, path): Promise<any>;
-  routePostsRequests(httpMethod, body, path): Promise<any>;
 }
 
 export class RequestRouter implements IRequestRouter {
@@ -46,7 +44,7 @@ export class RequestRouter implements IRequestRouter {
     }
   }
 
-  async routeUsersRequests(httpMethod, body, path): Promise<any> {
+  private async routeUsersRequests(httpMethod, body, path): Promise<any> {
 
     if (path.toLowerCase().includes(GET_USERS)
     && httpMethod.toLowerCase() === GET ) {
@@ -64,7 +62,7 @@ export class RequestRouter implements IRequestRouter {
     }
   }
 
-  async routePostsRequests(httpMethod, body, path): Promise<any> {
+  private async routePostsRequests(httpMethod, body, path): Promise<any> {
     if (path.toLowerCase().includes(GET_POSTS)
     && httpMethod.toLowerCase() === GET ) {
       const users = await this._postsServices.getAllPosts();
