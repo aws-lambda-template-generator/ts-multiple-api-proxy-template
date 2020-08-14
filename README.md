@@ -126,6 +126,10 @@ sls deploy -stage nonprod
 curl -H "x-api-key: <api key" -X GET https://url
 ```
 
+### Memory Optimisation
+
+We recommend to use AWS Lambda Power Tuning to optimise the memory size allocation (see details [here](https://www.mydatahack.com/how-to-optimise-memory-allocation-for-lambda-functions/)).
+
 ### Reference
 
 Tools

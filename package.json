@@ -1,5 +1,5 @@
 {
-  "name": "ts-standard-api-proxy-template",
+  "name": "ts-multiple-api-proxy-template",
   "version": "1.0.0",
   "description": "TypeScript Lambda function multiple API Proxy services Example",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aws-lambda-template-generator/ts-standard-api-proxy-template"
+    "url": "https://github.com/aws-lambda-template-generator/ts-multiple-api-proxy-template"
   },
   "keywords": [],
   "author": "mdh",
