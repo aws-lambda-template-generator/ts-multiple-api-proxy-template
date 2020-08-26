@@ -8,7 +8,8 @@
     "test": "nyc --reporter=html --reporter=text mocha --require source-map-support/register -r ts-node/register src/**/*.spec.ts",
     "test:watch": "mocha --require source-map-support/register -r ts-node/register --watch-files src, src/**/*.spec.ts --watch",
     "integration": "nyc --reporter=html --reporter=text mocha -r ts-node/register --recursive --timeout 5000 integration/**/*.ts",
-    "deploy": "sls deploy"
+    "deploy": "sls deploy",
+    "remove": "sls remove"
   },
   "repository": {
     "type": "git",

@@ -115,9 +115,21 @@ The project includes an example Jenkinsfile. Update according to your Jenkins se
 Use npm command and we can pass arguments as below. Alternatively, we can use sls deploy command.
 
 ```bash
-npm run deploy -- -stage nonprod
+# nonprod
+sls deploy --stage nonprod # if you have serverless installed globally (npm i -g serverless)
+npm run deploy -- --stage nonprod
 
-sls deploy -stage nonprod
+# prod
+sls deploy --stage prod
+npm run deploy -- --stage prod
+```
+
+To remove, run the command below:
+
+```bash
+sls remove --stage nonprod
+# or
+npm run remove -- --stage nonprod
 ```
 
 ### Checking endpoint

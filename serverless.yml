@@ -2,7 +2,7 @@ service: ts-lambda-mulitple-api
 
 plugins:
   - serverless-webpack # Enable typescript transpilation through webpack and deployment with serverless
-  # - serverless-plugin-git-variables # This plugin creates Tags based on the git repo information such as sha.
+  - serverless-plugin-git-variables # This plugin creates Tags based on the git repo information such as sha.
   #- serverless-domain-manager # This plugin creates DNS records through Route 53.
 
 custom:  
@@ -76,7 +76,7 @@ functions:
           method: post
           cors:
             origin: '*'
-  
+ 
 # If you need to create AWS resources such as dynamodb or cloudwatch, specify in resource.yml
 # resources: 
 #   Resources: ${file(config/resources.yml)}
