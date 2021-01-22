@@ -144,14 +144,14 @@ We recommend to use AWS Lambda Power Tuning to optimise the memory size allocati
 
 ### Reference
 
-Tools
+#### Tools
 
 - [serverless](https://serverless.com/)
 - [webpack](https://webpack.js.org/)
 - [serverless-webpack](https://github.com/serverless-heaven/serverless-webpack)
 - [source-map-support](https://www.npmjs.com/package/source-map-support)
 
-Configuration & Miscellaneous Reference
+#### Configuration & Miscellaneous Reference
 
 - [serverless variables](https://serverless.com/framework/docs/providers/aws/guide/variables/)
 - [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html)
