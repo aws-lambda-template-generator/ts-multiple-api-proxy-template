@@ -160,8 +160,3 @@ We recommend to use AWS Lambda Power Tuning to optimise the memory size allocati
 - [TypeScript compiler options](http://www.typescriptlang.org/docs/handbook/compiler-options.html)
 - [Nodejs AWS Lambda Boilerplate](https://github.com/mydatahack/nodejs-lambda-serverless-boilerplate)
 - [Istanbul with Moca & TypeScript](https://istanbul.js.org/docs/tutorials/typescript/)
-
-
-### Todo
-
-- add lambda type def - instead of using custom model https://serverlessfirst.com/fff-aws-lambda-type-definitions/ 
