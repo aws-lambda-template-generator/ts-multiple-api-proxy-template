@@ -1,4 +1,5 @@
-import { ILambdaResponse, IEventPayload } from '../models';
+import { ILambdaResponse } from '../models';
+import { APIGatewayProxyEvent } from 'aws-lambda';
 import { IRequestRouter } from '../services/RequestRouter';
 import { RESPONSE_HEADER } from '../constants';
 
@@ -10,7 +11,7 @@ export class ResponseGenerator {
     this._requestRouter = requestRouter;
   }
 
-  async generateLambdaResponse(event: IEventPayload): Promise<ILambdaResponse> {
+  async generateLambdaResponse(event: APIGatewayProxyEvent): Promise<ILambdaResponse> {
 
     const data = await this._requestRouter.routeRequests(event);
     console.log('checking data in generateLambdaResponse(): ', data);

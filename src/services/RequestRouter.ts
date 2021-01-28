@@ -1,6 +1,6 @@
+import { APIGatewayProxyEvent } from 'aws-lambda';
 import { IPostsServices } from './PostsServices';
 import { IUsersServices } from './UsersServices';
-import { IEventPayload } from '../models';
 import { Helpers } from '../lib/Helpers';
 import {
   GET_USERS,
@@ -14,7 +14,7 @@ import {
 } from '../constants';
 
 export interface IRequestRouter {
-  routeRequests(event: IEventPayload): Promise<any>;
+  routeRequests(event: APIGatewayProxyEvent): Promise<any>;
 }
 
 export class RequestRouter implements IRequestRouter {
@@ -27,7 +27,7 @@ export class RequestRouter implements IRequestRouter {
     this._usersServices = usersServices;
   }
 
-  async routeRequests(event: IEventPayload): Promise<any> {
+  async routeRequests(event: APIGatewayProxyEvent): Promise<any> {
     const { httpMethod, body, path } = event;
     try {
       if (this.isUserEndpoint(path)) {

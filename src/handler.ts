@@ -1,4 +1,4 @@
-import { ICallback, IEventPayload } from './models';
+import { APIGatewayProxyEvent, APIGatewayProxyResult, Callback, Context} from 'aws-lambda';
 import { ResponseGenerator } from './services/ResponseGenerator';
 import { RequestRouter } from './services/RequestRouter';
 import { UsersServices } from './services/UsersServices';
@@ -10,7 +10,7 @@ import { IApiOptions } from './models';
 import { IUser } from './models/UserModel';
 import { IPost } from './models/PostModel';
 
-module.exports.example = async(event: IEventPayload, context: any, callback: ICallback) => {
+module.exports.example = async(event: APIGatewayProxyEvent, context: Context, callback: Callback<APIGatewayProxyResult>) => {
 
   console.log(event);
   console.log('API Gateway Event.');

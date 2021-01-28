@@ -28,12 +28,6 @@ export interface ILambdaResponse {
   isBase64Encoded: boolean;
 }
 
-export interface IEventPayload {
-  httpMethod: string;
-  body: string;
-  path: string;
-}
-
 export interface ICallback {
   (error: any, result: ILambdaResponse): void;
 }
