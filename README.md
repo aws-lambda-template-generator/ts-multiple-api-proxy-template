@@ -4,20 +4,21 @@ AWS Lambda function template with TypeScript for creating a API proxy with multi
 
 This API creates 6 different endpoints
 
-| Endpoint      | Method        | Output     |
-| ------------- | ------------- | ---------- |
-| /get-users | GET | Get all users |
-| /get-user/{id} | GET | Get a single user by id |
-| /add-user | POST | Add a user |
-| /get-posts | GET | Get all posts|
-| /get-post/{id} | GET | Get a single post by id |
-| /add-post | POST | Add a post |
+| Endpoint       | Method | Output                  |
+| -------------- | ------ | ----------------------- |
+| /get-users     | GET    | Get all users           |
+| /get-user/{id} | GET    | Get a single user by id |
+| /add-user      | POST   | Add a user              |
+| /get-posts     | GET    | Get all posts           |
+| /get-post/{id} | GET    | Get a single post by id |
+| /add-post      | POST   | Add a post              |
 
 Data Examples
 
 1. For add-user
 
 User data
+
 ```json
 {
   "id": 2,
@@ -48,7 +49,7 @@ response comes back with mock id which is always the same
 
 ```json
 {
-    "id": 11
+  "id": 11
 }
 ```
 
@@ -69,7 +70,7 @@ response comes back with mock id which is always the same
 
 ```json
 {
-    "id": 101
+  "id": 101
 }
 ```
 
@@ -89,8 +90,9 @@ response comes back with mock id which is always the same
 ### Setup
 
 (1) Install all modules
+
 ```bash
-npm i
+yarn install
 ```
 
 ### Running Test
@@ -99,37 +101,27 @@ It uses mocha for unit & integration tests. Istanbul for coverage.
 
 ```bash
 # unit test
-npm test
+yarn test
 # integration test
-npm run integration
+yarn run integration
 ```
 
 ### Deployment
 
-1. Jenkins
-
-The project includes an example Jenkinsfile. Update according to your Jenkins setup for pipeline.
-
-2. From local machine
-
-Use npm command and we can pass arguments as below. Alternatively, we can use sls deploy command.
+Use `sls` commands. Make sure to install serverless globally (`yarn global add serverless`)
 
 ```bash
 # nonprod
-sls deploy --stage nonprod # if you have serverless installed globally (npm i -g serverless)
-npm run deploy -- --stage nonprod
+sls deploy --stage nonprod
 
 # prod
 sls deploy --stage prod
-npm run deploy -- --stage prod
 ```
 
 To remove, run the command below:
 
 ```bash
 sls remove --stage nonprod
-# or
-npm run remove -- --stage nonprod
 ```
 
 ### Checking endpoint
@@ -141,22 +133,3 @@ curl -H "x-api-key: <api key" -X GET https://url
 ### Memory Optimisation
 
 We recommend to use AWS Lambda Power Tuning to optimise the memory size allocation (see details [here](https://www.mydatahack.com/how-to-optimise-memory-allocation-for-lambda-functions/)).
-
-### Reference
-
-#### Tools
-
-- [serverless](https://serverless.com/)
-- [webpack](https://webpack.js.org/)
-- [serverless-webpack](https://github.com/serverless-heaven/serverless-webpack)
-- [source-map-support](https://www.npmjs.com/package/source-map-support)
-
-#### Configuration & Miscellaneous Reference
-
-- [serverless variables](https://serverless.com/framework/docs/providers/aws/guide/variables/)
-- [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html)
-- [JavaScript's strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
-- [Setting up tslint auto save](https://www.mydatahack.com/how-to-auto-fix-lint-on-save-with-vs-code-tslint-extension/)
-- [TypeScript compiler options](http://www.typescriptlang.org/docs/handbook/compiler-options.html)
-- [Nodejs AWS Lambda Boilerplate](https://github.com/mydatahack/nodejs-lambda-serverless-boilerplate)
-- [Istanbul with Moca & TypeScript](https://istanbul.js.org/docs/tutorials/typescript/)

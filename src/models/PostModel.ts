@@ -19,7 +19,7 @@ export interface IAddPost {
 
 export interface IPost {
   userId: number;
-  id:     number;
-  title:  string;
-  body:   string;
+  id: number;
+  title: string;
+  body: string;
 }

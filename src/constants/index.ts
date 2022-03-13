@@ -9,7 +9,7 @@ export const PATCH = 'patch';
 export const DELETE = 'delete';
 
 export const BASIC_CONTENT_TYPE_ONLY_HEADERS = {
-  'content-type': 'application/json; charset=UTF-8"'
+  'content-type': 'application/json; charset=UTF-8"',
 };
 
 // Lambda path

@@ -1,14 +1,12 @@
-import {
-  IApiMethod,
-  IApiOptions,
-  IHeaders
-} from '.';
+import { IApiMethod, IApiOptions, IHeaders } from '.';
 
 export class ApiOptions<T> implements IApiOptions<T> {
-
   private _method: IApiMethod;
+
   private _url: string;
+
   private _headers: IHeaders;
+
   private _data: T;
 
   get method(): IApiMethod {
