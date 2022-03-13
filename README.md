@@ -133,22 +133,3 @@ curl -H "x-api-key: <api key" -X GET https://url
 ### Memory Optimisation
 
 We recommend to use AWS Lambda Power Tuning to optimise the memory size allocation (see details [here](https://www.mydatahack.com/how-to-optimise-memory-allocation-for-lambda-functions/)).
-
-### Reference
-
-#### Tools
-
-- [serverless](https://serverless.com/)
-- [webpack](https://webpack.js.org/)
-- [serverless-webpack](https://github.com/serverless-heaven/serverless-webpack)
-- [source-map-support](https://www.npmjs.com/package/source-map-support)
-
-#### Configuration & Miscellaneous Reference
-
-- [serverless variables](https://serverless.com/framework/docs/providers/aws/guide/variables/)
-- [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html)
-- [JavaScript's strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
-- [Setting up tslint auto save](https://www.mydatahack.com/how-to-auto-fix-lint-on-save-with-vs-code-tslint-extension/)
-- [TypeScript compiler options](http://www.typescriptlang.org/docs/handbook/compiler-options.html)
-- [Nodejs AWS Lambda Boilerplate](https://github.com/mydatahack/nodejs-lambda-serverless-boilerplate)
-- [Istanbul with Moca & TypeScript](https://istanbul.js.org/docs/tutorials/typescript/)
