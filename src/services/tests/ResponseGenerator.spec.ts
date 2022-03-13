@@ -23,7 +23,7 @@ describe('ResponseGenerator', () => {
   });
 
   describe('generateLambdaResponse()', () => {
-    it('should generate correct lambda response', async() => {
+    it('should generate correct lambda response', async () => {
       // arrange
       const apiOptions = new ApiOptions();
       const apiOptionManager = new ApiOptionsManager();
@@ -32,15 +32,13 @@ describe('ResponseGenerator', () => {
       const postsServices = new PostsServices(apiOptions as IApiOptions<IPost>, apiOptionManager, apiManager);
       const requestRouter = new RequestRouter(postsServices, usersServices);
       const responseGenerator = new ResponseGenerator(requestRouter);
-      const mockData = {id: 1};
-      sinon
-        .stub(RequestRouter.prototype, 'routeRequests')
-        .resolves({status: 200, data: mockData});
+      const mockData = { id: 1 };
+      sinon.stub(RequestRouter.prototype, 'routeRequests').resolves({ status: 200, data: mockData });
       const expectedResponse = {
         statusCode: 200,
         headers: RESPONSE_HEADER,
         body: JSON.stringify(mockData),
-        isBase64Encoded: false
+        isBase64Encoded: false,
       };
       // act
       const lambdaResponse = await responseGenerator.generateLambdaResponse(apiGatewayEventMock);
@@ -50,5 +48,4 @@ describe('ResponseGenerator', () => {
       (RequestRouter.prototype.routeRequests as any).restore();
     });
   });
-
 });

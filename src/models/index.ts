@@ -23,7 +23,7 @@ export interface IHeaders {
 
 export interface ILambdaResponse {
   statusCode: number;
-  headers: {};
+  headers: { [header: string]: string | number | boolean };
   body: string;
   isBase64Encoded: boolean;
 }

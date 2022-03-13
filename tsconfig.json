@@ -11,11 +11,6 @@
     "strictNullChecks": true,
     "inlineSourceMap": true /* Emit a single file with source maps instead of having a separate file. */
   },
-  "include" : [
-      "./src/**/*"
-  ],
-  "exclude" : [
-      "./src/**/*.spec.*",
-      "./integration/**/*"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": [".eslintrc.js", "./src/**/tests/*.spec.*", "./src/**/tests/**", "./integration/**/*"]
 }

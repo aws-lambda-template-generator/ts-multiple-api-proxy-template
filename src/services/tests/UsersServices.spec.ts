@@ -7,11 +7,7 @@ import { IApiOptions } from '../../models';
 import { IUser } from '../../models/UserModel';
 import { ApiOptionsManager } from '../../lib/ApiOptionsManager';
 import { ApiManager } from '../../lib/ApiManager';
-import {
-  GET,
-  POST,
-  BASIC_CONTENT_TYPE_ONLY_HEADERS
-} from '../../constants';
+import { GET, POST, BASIC_CONTENT_TYPE_ONLY_HEADERS } from '../../constants';
 
 describe('PostsServices', () => {
   beforeEach(() => {
@@ -22,7 +18,7 @@ describe('PostsServices', () => {
     (console.log as any).restore();
   });
   describe('getAllPosts()', () => {
-    it('should return all post data', async() => {
+    it('should return all post data', async () => {
       // arrange
       const mockUrl = 'hello.world';
       const apiOptions = new ApiOptions() as IApiOptions<IUser>;
@@ -32,21 +28,19 @@ describe('PostsServices', () => {
         statusText: 'success',
         headers: {},
         config: {},
-        data: {id: 1},
-        status: 200
+        data: { id: 1 },
+        status: 200,
       };
       const mockOptions: AxiosRequestConfig = {
         method: GET,
         url: mockUrl,
-        headers: BASIC_CONTENT_TYPE_ONLY_HEADERS
+        headers: BASIC_CONTENT_TYPE_ONLY_HEADERS,
       };
       const expectedOutput = {
         status: 200,
-        data: {id: 1}
+        data: { id: 1 },
       };
-      sinon
-        .stub(ApiOptionsManager.prototype, 'createApiSimpleGetOptions')
-        .returns(mockOptions);
+      sinon.stub(ApiOptionsManager.prototype, 'createApiSimpleGetOptions').returns(mockOptions);
       sinon
         .stub(ApiManager.prototype, 'makeRequest')
         .withArgs(apiOptionsManager.createApiSimpleGetOptions(apiOptions))
@@ -64,7 +58,7 @@ describe('PostsServices', () => {
   });
 
   describe('getPost()', () => {
-    it('should return post data for an id', async() => {
+    it('should return post data for an id', async () => {
       // arrange
       const mockUrl = 'hello.world/get-user/1';
       const apiOptions = new ApiOptions() as IApiOptions<IUser>;
@@ -74,21 +68,19 @@ describe('PostsServices', () => {
         statusText: 'success',
         headers: {},
         config: {},
-        data: {id: 1},
-        status: 200
+        data: { id: 1 },
+        status: 200,
       };
       const mockOptions: AxiosRequestConfig = {
         method: GET,
         url: mockUrl,
-        headers: BASIC_CONTENT_TYPE_ONLY_HEADERS
+        headers: BASIC_CONTENT_TYPE_ONLY_HEADERS,
       };
       const expectedOutput = {
         status: 200,
-        data: {id: 1}
+        data: { id: 1 },
       };
-      sinon
-        .stub(ApiOptionsManager.prototype, 'createApiSimpleGetOptions')
-        .returns(mockOptions);
+      sinon.stub(ApiOptionsManager.prototype, 'createApiSimpleGetOptions').returns(mockOptions);
       sinon
         .stub(ApiManager.prototype, 'makeRequest')
         .withArgs(apiOptionsManager.createApiSimpleGetOptions(apiOptions))
@@ -107,7 +99,7 @@ describe('PostsServices', () => {
   });
 
   describe('addPost()', () => {
-    it('should add post data with returning correct response', async() => {
+    it('should add post data with returning correct response', async () => {
       // arrange
       const mockUrl = 'hello.world/add-user';
       const apiOptions = new ApiOptions() as IApiOptions<IUser>;
@@ -117,22 +109,20 @@ describe('PostsServices', () => {
         statusText: 'success',
         headers: {},
         config: {},
-        data: {id: 1},
-        status: 200
+        data: { id: 1 },
+        status: 200,
       };
       const mockOptions: AxiosRequestConfig = {
         method: POST,
         url: mockUrl,
-        headers: BASIC_CONTENT_TYPE_ONLY_HEADERS
+        headers: BASIC_CONTENT_TYPE_ONLY_HEADERS,
       };
       const expectedOutput = {
         status: 200,
-        data: {id: 1}
+        data: { id: 1 },
       };
-      const postMockData = {id: 1} as IUser;
-      sinon
-        .stub(ApiOptionsManager.prototype, 'createApiSimpleGetOptions')
-        .returns(mockOptions);
+      const postMockData = { id: 1 } as IUser;
+      sinon.stub(ApiOptionsManager.prototype, 'createApiSimpleGetOptions').returns(mockOptions);
       sinon
         .stub(ApiManager.prototype, 'makeRequest')
         .withArgs(apiOptionsManager.createApiSimpleGetOptions(apiOptions))

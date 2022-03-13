@@ -5,7 +5,7 @@ plugins:
   - serverless-plugin-git-variables # This plugin creates Tags based on the git repo information such as sha.
   #- serverless-domain-manager # This plugin creates DNS records through Route 53.
 
-custom:  
+custom:
   stage: ${opt:stage, self:provider.stage}
   region: ${opt:region, self:provider.region}
   resourcePrefix: ${self:service}-${self:custom.stage}
@@ -17,7 +17,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   region: ${file(config/account.yml):REGION} # from custom config
   stage: test
   account: ${file(config/account.yml):ACCOUNT_ID} # from custom config
@@ -42,7 +42,7 @@ functions:
           path: get-users
           method: get
           cors:
-            origin: '*'
+            origin: "*"
       - http:
           path: get-user/{id}
           method: get
@@ -51,17 +51,17 @@ functions:
               paths:
                 id: true
           cors:
-            origin: '*'
+            origin: "*"
       - http:
           path: add-user
           method: post
           cors:
-            origin: '*'
+            origin: "*"
       - http:
           path: get-posts
           method: get
           cors:
-            origin: '*'
+            origin: "*"
       - http:
           path: get-post/{id}
           method: get
@@ -70,13 +70,12 @@ functions:
               paths:
                 id: true
           cors:
-            origin: '*'
+            origin: "*"
       - http:
           path: add-post
           method: post
           cors:
-            origin: '*'
- 
+            origin: "*"
 # If you need to create AWS resources such as dynamodb or cloudwatch, specify in resource.yml
-# resources: 
+# resources:
 #   Resources: ${file(config/resources.yml)}

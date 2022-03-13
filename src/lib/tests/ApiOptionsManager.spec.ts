@@ -10,11 +10,11 @@ describe('ApiOptionsManager', () => {
       const apiOptions = new ApiOptions();
       apiOptions.method = 'get';
       apiOptions.url = 'hello.world';
-      apiOptions.headers = {'content-type':'application/json'};
+      apiOptions.headers = { 'content-type': 'application/json' };
       const expectedOutput = {
         method: 'get',
         url: 'hello.world',
-        headers: {'content-type':'application/json'}
+        headers: { 'content-type': 'application/json' },
       };
       // Act
       const options = apiOptionsManager.createApiSimpleGetOptions(apiOptions);
