@@ -23,7 +23,7 @@ export class UsersServices implements IUsersServices {
   constructor(
     apiOptions: IApiOptions<IUser>,
     apiOptionsManager: IApiOptionsManager<IUser>,
-    apiManager: IApiManager<IUser[]>,
+    apiManager: IApiManager<IUser[]> | IApiManager<IUser> | IApiManager<IAddUser>,
   ) {
     this._apiOptions = apiOptions;
     this._apiOptionsManager = apiOptionsManager;

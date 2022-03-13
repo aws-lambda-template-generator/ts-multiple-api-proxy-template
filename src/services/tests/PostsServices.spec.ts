@@ -23,7 +23,7 @@ describe('PostsServices', () => {
       const mockUrl = 'hello.world';
       const apiOptions = new ApiOptions() as IApiOptions<IPost>;
       const apiOptionsManager = new ApiOptionsManager();
-      const apiManager = new ApiManager();
+      const apiManager = new ApiManager() as IApiManager<IPost[]>;
       const expectedAxiosOutput = {
         statusText: 'success',
         headers: {},
@@ -45,7 +45,7 @@ describe('PostsServices', () => {
         .stub(ApiManager.prototype, 'makeRequest')
         .withArgs(apiOptionsManager.createApiSimpleGetOptions(apiOptions))
         .resolves(expectedAxiosOutput);
-      const postsServices = new PostsServices(apiOptions, apiOptionsManager, apiManager as IApiManager<IPost[]>);
+      const postsServices = new PostsServices(apiOptions, apiOptionsManager, apiManager);
 
       // act
       const posts = await postsServices.getAllPosts();
@@ -63,7 +63,7 @@ describe('PostsServices', () => {
       const mockUrl = 'hello.world/get-user/1';
       const apiOptions = new ApiOptions() as IApiOptions<IPost>;
       const apiOptionsManager = new ApiOptionsManager();
-      const apiManager = new ApiManager();
+      const apiManager = new ApiManager() as IApiManager<IPost>;
       const expectedAxiosOutput = {
         statusText: 'success',
         headers: {},
@@ -85,7 +85,7 @@ describe('PostsServices', () => {
         .stub(ApiManager.prototype, 'makeRequest')
         .withArgs(apiOptionsManager.createApiSimpleGetOptions(apiOptions))
         .resolves(expectedAxiosOutput);
-      const postsServices = new PostsServices(apiOptions, apiOptionsManager, apiManager as IApiManager<IPost[]>);
+      const postsServices = new PostsServices(apiOptions, apiOptionsManager, apiManager);
 
       // act
       const user = await postsServices.getPost('1');
@@ -104,7 +104,7 @@ describe('PostsServices', () => {
       const mockUrl = 'hello.world/add-user';
       const apiOptions = new ApiOptions() as IApiOptions<IPost>;
       const apiOptionsManager = new ApiOptionsManager();
-      const apiManager = new ApiManager();
+      const apiManager = new ApiManager() as IApiManager<IAddPost>;
       const expectedAxiosOutput = {
         statusText: 'success',
         headers: {},
@@ -125,7 +125,7 @@ describe('PostsServices', () => {
       const postMockData = { id: 1 } as IPost;
       sinon.stub(ApiOptionsManager.prototype, 'createApiSimpleGetOptions').returns(mockOptions);
       sinon.stub(ApiManager.prototype, 'makeRequest').withArgs(mockOptions).resolves(expectedAxiosOutput);
-      const postsServices = new PostsServices(apiOptions, apiOptionsManager, apiManager as IApiManager<IPost[]>);
+      const postsServices = new PostsServices(apiOptions, apiOptionsManager, apiManager);
 
       // act
       const postsAddReqponse = await postsServices.addPost(postMockData);

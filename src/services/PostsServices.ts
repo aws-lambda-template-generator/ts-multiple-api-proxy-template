@@ -23,7 +23,7 @@ export class PostsServices implements IPostsServices {
   constructor(
     apiOptions: IApiOptions<IPost>,
     apiOptionsManager: IApiOptionsManager<IPost>,
-    apiManager: IApiManager<IPost[]>,
+    apiManager: IApiManager<IPost[]> | IApiManager<IPost> | IApiManager<IAddPost>,
   ) {
     this._apiOptions = apiOptions;
     this._apiOptionsManager = apiOptionsManager;

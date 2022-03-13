@@ -4,9 +4,9 @@ import { AxiosRequestConfig } from 'axios';
 import { UsersServices } from '../UsersServices';
 import { ApiOptions } from '../../models/ApiOptions';
 import { IApiOptions } from '../../models';
-import { IUser } from '../../models/UserModel';
+import { IUser, IAddUser } from '../../models/UserModel';
 import { ApiOptionsManager } from '../../lib/ApiOptionsManager';
-import { ApiManager } from '../../lib/ApiManager';
+import { ApiManager, IApiManager } from '../../lib/ApiManager';
 import { GET, POST, BASIC_CONTENT_TYPE_ONLY_HEADERS } from '../../constants';
 
 describe('PostsServices', () => {
@@ -23,7 +23,7 @@ describe('PostsServices', () => {
       const mockUrl = 'hello.world';
       const apiOptions = new ApiOptions() as IApiOptions<IUser>;
       const apiOptionsManager = new ApiOptionsManager();
-      const apiManager = new ApiManager();
+      const apiManager = new ApiManager() as IApiManager<IUser[]>;
       const expectedAxiosOutput = {
         statusText: 'success',
         headers: {},
@@ -63,7 +63,7 @@ describe('PostsServices', () => {
       const mockUrl = 'hello.world/get-user/1';
       const apiOptions = new ApiOptions() as IApiOptions<IUser>;
       const apiOptionsManager = new ApiOptionsManager();
-      const apiManager = new ApiManager();
+      const apiManager = new ApiManager() as IApiManager<IUser>;
       const expectedAxiosOutput = {
         statusText: 'success',
         headers: {},
@@ -104,7 +104,7 @@ describe('PostsServices', () => {
       const mockUrl = 'hello.world/add-user';
       const apiOptions = new ApiOptions() as IApiOptions<IUser>;
       const apiOptionsManager = new ApiOptionsManager();
-      const apiManager = new ApiManager();
+      const apiManager = new ApiManager() as IApiManager<IAddUser>;
       const expectedAxiosOutput = {
         statusText: 'success',
         headers: {},
